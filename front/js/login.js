@@ -7,7 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     mensajeDiv.textContent = '';
 
     try {
-        const response = await fetch('/autenticacionconjwt/back/api/api.php?action=login', {
+        const response = await fetch('/autenticacionconjwt/back/api/login.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

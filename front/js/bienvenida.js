@@ -1,4 +1,4 @@
-const API_WELCOME_URL = '/autenticacionconjwt/back/api/api.php?action=welcome'; 
+const API_WELCOME_URL = '/autenticacionconjwt/back/api/bienvenida.php'; 
 
 const token = localStorage.getItem('authToken');
 
