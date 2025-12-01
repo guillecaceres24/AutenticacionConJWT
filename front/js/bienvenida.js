@@ -1,11 +1,11 @@
-const API_WELCOME_URL = '/autenticacionconjwt/api/api.php?action=welcome'; 
+const API_WELCOME_URL = '/autenticacionconjwt/back/api/api.php?action=welcome'; 
 
 const token = localStorage.getItem('authToken');
 
 async function cargarDatosProtegidos() {
 
     if (!token) {
-        window.location.href = 'front/no_acceso.html';
+        window.location.href = 'no_acceso.html';
         return;
     }
 
@@ -27,19 +27,21 @@ async function cargarDatosProtegidos() {
             document.getElementById('mensajeAdicional').textContent = data.mensaje_adicional;
         } else if (response.status === 403) {
             console.error('Acceso denegado:', data.message);
-            window.location.href = 'front/no_acceso.html';
+            window.location.href = 'no_acceso.html';
         } else {
             console.error('Error al obtener datos:', data.message);
-            window.location.href = 'front/no_acceso.html';
+            window.location.href = 'no_acceso.html';
         }
 
     } catch (error) {
         console.error('Error de red al llamar a la API:', error);
-        window.location.href = 'front/no_acceso.html';
+        window.location.href = 'no_acceso.html';
     }
 }
 
-    document.getElementById('logoutButton').addEventListener('click', function() {
-        localStorage.removeItem('authToken');
-        window.location.href = 'front/login.html';
-    });cargarDatosProtegidos();
+document.getElementById('logoutButton').addEventListener('click', function() {
+    localStorage.removeItem('authToken');
+    window.location.href = 'login.html';
+});
+
+cargarDatosProtegidos();
