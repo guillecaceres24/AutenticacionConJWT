@@ -19,7 +19,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 
         if (response.ok) {
             localStorage.setItem('authToken', data.token);
-            window.location.href = 'bienvenida.html';
+            window.location.href = 'front/bienvenida.html';
         } else if (response.status === 401) {
             mensajeDiv.textContent = 'Error: ' + (data.message || 'Credenciales inválidas.');
         } else {
